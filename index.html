@@ -88,6 +88,7 @@ p:last-child{margin-bottom:0}
 /* ---------- video ---------- */
 .videos{display:grid;gap:14px;margin-top:4px}
 @media(min-width:560px){.videos{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.videos{grid-template-columns:1fr 1fr 1fr}}
 .vcard{
   border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fbfcfd;
 }
@@ -288,6 +289,13 @@ footer a{color:#8d97a1;text-decoration:underline}
 
     <div class="videos">
       <div class="vcard">
+        <div class="vbox" id="videoFactory">
+          <div class="vph"><span class="ico">▶</span>Factory tour video<br><span style="font-size:11.5px">tap to play</span></div>
+        </div>
+        <div class="vcap">Factory tour<span>The whole plant, start to finished carton</span></div>
+      </div>
+
+      <div class="vcard">
         <div class="vbox" id="videoProd">
           <div class="vph"><span class="ico">▶</span>Production line video<br><span style="font-size:11.5px">tap to play</span></div>
         </div>
@@ -482,7 +490,8 @@ const CONFIG = {
   cartonQty   : "Ask for carton quantity",
   shelfLife   : "2 years",
 
-  videoProduction : "https://youtu.be/Kz3LyQIuuhM",
+  videoFactory    : "https://youtu.be/36oLF5n9dlI",   // 工厂总览 37 秒
+  videoProduction : "https://youtu.be/Kz3LyQIuuhM",   // 生产车间 8 秒
   videoWarehouse  : "https://youtu.be/un0mlgm3IK4"
 };
 
@@ -536,14 +545,17 @@ function embedVideo(elId, url, label, poster){
    }
    if(html) el.innerHTML = html;
  }
+ embedVideo('videoFactory', CONFIG.videoFactory,   'Factory tour',    'factory-loading.jpg');
  embedVideo('videoProd', CONFIG.videoProduction, 'Production line', 'workshop-1.jpg');
  embedVideo('videoWh',   CONFIG.videoWarehouse,  'Warehouse',       'factory-warehouse.jpg');
 
  // 只剩一个视频时让它占满整行，不留半截空白
  (function(){
    var box = document.querySelector('.videos');
-   if(box && box.querySelectorAll('.vcard').length === 1){
-     box.style.gridTemplateColumns = '1fr';
+   if(box){
+     var n = box.querySelectorAll('.vcard').length;
+     if(n === 1) box.style.gridTemplateColumns = '1fr';
+     if(n === 2) box.style.gridTemplateColumns = '1fr 1fr';
    }
  })();
 </script>
