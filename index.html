@@ -172,6 +172,10 @@ p:last-child{margin-bottom:0}
   border:1px solid var(--line);border-radius:var(--radius);padding:20px;margin-top:6px;
   background:#fff;
 }
+.pcard--media{padding:0;overflow:hidden}
+.pcard-img{width:100%;aspect-ratio:5/7;object-fit:cover;object-position:center;
+  display:block;background:var(--paper);border-bottom:1px solid var(--line)}
+.pcard-body{padding:17px 20px 20px}
 .ptag{
   display:inline-block;background:var(--amber-light);color:var(--amber);
   font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:6px;margin-bottom:11px;
@@ -475,27 +479,39 @@ footer{padding:46px 0 40px;font-size:12.5px;color:#7b8791;line-height:1.75;
     </p>
 
     <div class="pgrid">
-      <div class="pcard">
-        <span class="pstat in">In stock in Accra</span>
-        <h3>Ginseng Five Treasure Tea</h3>
-        <p class="small muted" style="margin-bottom:0">
-          Ginseng with goji berry, red dates, mulberry and maca. The everyday blend most
-          shops start with.
-        </p>
+      <div class="pcard pcard--media">
+        <img class="pcard-img" src="product-five-treasure.jpg" alt="Ginseng Five Treasures Tea pack" loading="lazy">
+        <div class="pcard-body">
+          <span class="pstat in">In stock in Accra</span>
+          <h3>Ginseng Five Treasure Tea</h3>
+          <p class="small muted" style="margin-bottom:0">
+            Ginseng with goji berry, red dates, mulberry and maca. The everyday blend most
+            shops start with.
+          </p>
+        </div>
       </div>
-      <div class="pcard">
-        <span class="pstat soon">Next shipment · mid-Dec</span>
-        <h3>Ginseng Ten Treasure Tea</h3>
-        <p class="small muted" style="margin-bottom:0">
-          A richer ten-ingredient blend for customers who want more. Full ingredient list on request.
-        </p>
+      <div class="pcard pcard--media">
+        <img class="pcard-img" src="pack-ten-treasure.jpg" alt="Ginseng Ten Treasure Tea pack, 150g" loading="lazy">
+        <div class="pcard-body">
+          <span class="pstat soon">Next shipment · mid-Dec</span>
+          <h3>Ginseng Ten Treasure Tea</h3>
+          <p class="small muted" style="margin-bottom:0">
+            Ten botanicals — red date, maca, mulberry, Chinese yam, goji, kudzu root, burdock,
+            barley, polygonatum and ginseng. 150 g, 30 bags.
+          </p>
+        </div>
       </div>
-      <div class="pcard">
-        <span class="pstat soon">Next shipment · mid-Dec</span>
-        <h3>Ginseng Thirteen Treasure Tea</h3>
-        <p class="small muted" style="margin-bottom:0">
-          The most complete of the three. Full ingredient list on request.
-        </p>
+      <div class="pcard pcard--media">
+        <img class="pcard-img" src="pack-thirteen-treasure.jpg" alt="Ginseng Thirteen Treasures Tea pack, 150g" loading="lazy">
+        <div class="pcard-body">
+          <span class="pstat soon">Next shipment · mid-Dec</span>
+          <h3>Ginseng Thirteen Treasure Tea</h3>
+          <p class="small muted" style="margin-bottom:0">
+            The most complete blend — cistanche, maca, yam, poria, mulberry, goji, red date,
+            tangerine peel, eucommia flower, gorgon fruit, solomon's seal, ginseng and burdock.
+            150 g, 30 bags.
+          </p>
+        </div>
       </div>
     </div>
 
