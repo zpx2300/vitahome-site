@@ -104,6 +104,12 @@ p:last-child{margin-bottom:0}
 .shot img{width:100%;height:auto;display:block}
 .shotcap{padding:11px 14px;font-size:13.5px;font-weight:600;border-top:1px solid var(--line)}
 .shotcap span{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
+.gallery{display:grid;gap:14px;margin-top:14px}
+@media(min-width:560px){.gallery{grid-template-columns:1fr 1fr}}
+@media(min-width:860px){.gallery{grid-template-columns:1fr 1fr 1fr}}
+.gcard{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fbfcfd}
+.gcard img{width:100%;height:210px;object-fit:cover;display:block}
+@media(max-width:559px){.gcard img{height:230px}}
 
 /* ---------- product ---------- */
 .pgrid{display:grid;gap:12px;margin-top:6px}
@@ -276,22 +282,38 @@ footer a{color:#8d97a1;text-decoration:underline}
     <div class="eyebrow">Behind the product</div>
     <h2>See where it's made</h2>
     <p class="muted small" style="margin-bottom:16px">
-      Not stock photos. This is the actual production line and warehouse.
+      Real footage from the Deyuntang Health plant that makes our tea — not stock images.
+      The plant is in China. The stock you buy from is in Accra.
     </p>
 
     <div class="videos">
       <div class="vcard">
         <div class="vbox" id="videoProd">
-          <div class="vph"><span class="ico">▶</span>Production line video<br><span style="font-size:11.5px">paste a YouTube / Drive link in CONFIG</span></div>
+          <div class="vph"><span class="ico">▶</span>Production line video<br><span style="font-size:11.5px">tap to play</span></div>
         </div>
         <div class="vcap">Production line<span>Raw material → blending → bagging → sealing → carton</span></div>
       </div>
 
       <div class="vcard">
         <div class="vbox" id="videoWh">
-          <div class="vph"><span class="ico">▶</span>Warehouse video<br><span style="font-size:11.5px">paste a YouTube / Drive link in CONFIG</span></div>
+          <div class="vph"><span class="ico">▶</span>Warehouse video<br><span style="font-size:11.5px">tap to play</span></div>
         </div>
-        <div class="vcap">Warehouse &amp; packing<span>Stock held and prepared for export</span></div>
+        <div class="vcap">Export warehouse<span>Finished stock packed and palletised for export</span></div>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="gcard">
+        <img src="workshop-1.jpg" alt="Ginseng tea production hall at the Deyuntang Health plant" loading="lazy">
+        <div class="shotcap">Production hall<span>Bagging and sealing room, full shift</span></div>
+      </div>
+      <div class="gcard">
+        <img src="workshop-2.jpg" alt="Ginseng tea bagging and sealing line" loading="lazy">
+        <div class="shotcap">Sealing line<span>Individual sachets sealed and counted</span></div>
+      </div>
+      <div class="gcard">
+        <img src="factory-warehouse.jpg" alt="Export warehouse holding finished ginseng tea cartons" loading="lazy">
+        <div class="shotcap">Export warehouse<span>Cartons and raw-material sacks ready to ship</span></div>
       </div>
     </div>
 
@@ -299,6 +321,7 @@ footer a{color:#8d97a1;text-decoration:underline}
       <img src="factory-loading.jpg" alt="Loading ginseng tea at the Deyuntang Health factory" loading="lazy">
       <div class="shotcap">Loading at the factory<span>Finished cartons going out for export</span></div>
     </div>
+
 
     <div style="margin-top:18px">
       <ul class="feat">
@@ -459,8 +482,8 @@ const CONFIG = {
   cartonQty   : "Ask for carton quantity",
   shelfLife   : "2 years",
 
-  videoProduction : "https://youtu.be/36oLF5n9dlI",
-  videoWarehouse  : ""
+  videoProduction : "https://youtu.be/Kz3LyQIuuhM",
+  videoWarehouse  : "https://youtu.be/un0mlgm3IK4"
 };
 
 /* ---------- 以下不用改 ---------- */
@@ -491,23 +514,38 @@ document.getElementById('waContact').href = waLink(MSG_CONTACT);
 document.getElementById('waSticky').href  = waLink(MSG_CONTACT);
 
 /* 视频注入：支持 YouTube 与 Google Drive */
-function embedVideo(elId, url, label){
-  const el = document.getElementById(elId);
-  if(!url) return;
-  let html = "";
-  const yt = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
-  if(yt){
-    html = '<iframe src="https://www.youtube.com/embed/' + yt[1] + '" allowfullscreen loading="lazy" title="' + label + '"></iframe>';
-  } else if(url.includes('drive.google.com')){
-    const idm = url.match(/[-\w]{25,}/);
-    if(idm) html = '<iframe src="https://drive.google.com/file/d/' + idm[0] + '/preview" allow="autoplay" loading="lazy" title="' + label + '"></iframe>';
-  } else {
-    html = '<video src="' + url + '" controls playsinline preload="metadata"></video>';
-  }
-  if(html) el.innerHTML = html;
-}
-embedVideo('videoProd', CONFIG.videoProduction, 'Production line');
-embedVideo('videoWh',   CONFIG.videoWarehouse,  'Warehouse');
+function embedVideo(elId, url, label, poster){
+   const el = document.getElementById(elId);
+   if(!el) return;
+   if(!url){
+     // 没有视频就把整个卡片藏掉，不留点不动的空壳
+     var card = el.closest('.vcard');
+     if(card) card.remove();
+     return;
+   }
+   let html = "";
+   const yt = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
+   if(yt){
+     html = '<iframe src="https://www.youtube.com/embed/' + yt[1] + '" allowfullscreen loading="lazy" title="' + label + '"></iframe>';
+   } else if(url.includes('drive.google.com')){
+     const idm = url.match(/[-\w]{25,}/);
+     if(idm) html = '<iframe src="https://drive.google.com/file/d/' + idm[0] + '/preview" allow="autoplay" loading="lazy" title="' + label + '"></iframe>';
+   } else {
+     var p = poster ? ' poster="' + poster + '"' : '';
+     html = '<video src="' + url + '" controls playsinline preload="none"' + p + '></video>';
+   }
+   if(html) el.innerHTML = html;
+ }
+ embedVideo('videoProd', CONFIG.videoProduction, 'Production line', 'workshop-1.jpg');
+ embedVideo('videoWh',   CONFIG.videoWarehouse,  'Warehouse',       'factory-warehouse.jpg');
+
+ // 只剩一个视频时让它占满整行，不留半截空白
+ (function(){
+   var box = document.querySelector('.videos');
+   if(box && box.querySelectorAll('.vcard').length === 1){
+     box.style.gridTemplateColumns = '1fr';
+   }
+ })();
 </script>
 
 </body>
