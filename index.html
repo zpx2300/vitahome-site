@@ -3,14 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ginseng Herbal Tea — In Stock in Ghana | Wholesale &amp; Private Label</title>
-<meta name="description" content="Factory-backed ginseng herbal tea, in stock in Accra, Ghana. Wholesale for retailers and distributors. Private label available. Delivery within Greater Accra.">
+<title>Ginseng Herbal Tea — In Stock in Accra, Ghana | Wholesale &amp; Private Label</title>
+<meta name="description" content="Factory-backed ginseng herbal tea, in stock in our Accra warehouse and delivered to every region of Ghana. Wholesale for retailers, herbal shops, clinics and distributors. Private label available.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VitaHome">
+<meta property="og:title" content="Ginseng Herbal Tea — In Stock in Accra, Ghana">
+<meta property="og:description" content="Stocked in our Accra warehouse, delivered to every region of Ghana. Wholesale and private label for retailers, herbal shops and distributors.">
+<meta property="og:image" content="https://vitahome.pages.dev/product-five-treasure.jpg">
+<meta property="og:url" content="https://vitahome.pages.dev/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0d6b52">
+<link rel="icon" href="logo-mark.png">
 <style>
 :root{
-  --green:#0d6b52; --green-dark:#084a39; --green-light:#e8f3ef;
-  --ink:#152029; --muted:#5f6b76; --line:#e2e8ec;
+  --green:#0d6b52; --green-dark:#084a39; --green-deep:#0a3529; --green-light:#e8f3ef;
+  --ink:#14202a; --muted:#5f6b76; --line:#e3e8ec; --paper:#f7f9f8;
   --amber:#b8761c; --amber-light:#fdf6ec;
-  --radius:14px; --maxw:760px;
+  --radius:14px; --maxw:1080px; --readw:660px;
+  --serif:ui-serif, Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
@@ -31,15 +41,25 @@ a{color:var(--green);text-decoration:none}
 .topbar strong{font-weight:600}
 
 /* ---------- hero ---------- */
-.hero{padding:38px 0 30px;border-bottom:1px solid var(--line)}
-.brandline{display:flex;align-items:center;gap:10px;margin-bottom:22px}
+.hero{padding:42px 0 48px;border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,#ffffff 0%,#f6f9f7 100%)}
+.hero-grid{display:grid;gap:30px;align-items:center}
+@media(min-width:880px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:52px}}
+.hero-media{border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  background:linear-gradient(155deg,#f2f8f4 0%,#e3efe8 100%)}
+.hero-media img{width:100%;aspect-ratio:1/1;object-fit:contain;display:block;padding:14px}
+@media(min-width:880px){.hero-media img{aspect-ratio:4/5}}
+.hero-cap{padding:12px 16px;background:rgba(255,255,255,.9);border-top:1px solid var(--line);
+  font-size:11.5px;color:var(--muted);letter-spacing:.02em}
+.brandline{display:flex;align-items:center;gap:10px;margin-bottom:26px}
 .logoimg{height:44px;width:auto;display:block;flex:0 0 auto}
 .brandlock{display:flex;align-items:center;gap:9px}
 .brandname{font-weight:650;font-size:15px;line-height:1.25}
 .brandsub{font-size:12px;color:var(--muted)}
+h1,h2,h3{font-family:var(--serif);font-weight:600}
 h1{
-  font-size:29px;line-height:1.25;letter-spacing:-.4px;font-weight:700;
-  margin-bottom:14px;
+  font-size:clamp(31px,6.4vw,50px);line-height:1.08;letter-spacing:-.022em;font-weight:600;
+  margin-bottom:18px;
 }
 h1 .hl{color:var(--green)}
 .lede{font-size:16.5px;color:#3c4954;margin-bottom:20px}
@@ -61,18 +81,51 @@ h1 .hl{color:var(--green)}
 @media(min-width:520px){.btn{width:auto}}
 
 /* ---------- sections ---------- */
-section{padding:34px 0;border-bottom:1px solid var(--line)}
+section{padding:56px 0;border-bottom:1px solid var(--line)}
 section:last-of-type{border-bottom:none}
+section .wrap > p,
+section .wrap > h2,
+section .wrap > h3,
+section .wrap > .eyebrow,
+section .wrap > ul.feat{max-width:var(--readw)}
 .eyebrow{
-  font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
-  color:var(--green);margin-bottom:9px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;
+  color:var(--green);margin-bottom:12px;
 }
-h2{font-size:22px;line-height:1.3;letter-spacing:-.3px;margin-bottom:12px;font-weight:700}
-h3{font-size:16.5px;font-weight:650;margin-bottom:6px}
+h2{font-size:clamp(24px,4.1vw,33px);line-height:1.16;letter-spacing:-.015em;margin-bottom:16px}
+h3{font-size:19px;line-height:1.3;margin-bottom:7px}
 p{margin-bottom:13px}
 p:last-child{margin-bottom:0}
 .muted{color:var(--muted)}
-.small{font-size:14px}
+.small{font-size:14.5px}
+
+/* ---------- stat band ---------- */
+.stats{border-bottom:1px solid var(--line);background:#fff}
+.stats-in{display:grid;grid-template-columns:1fr 1fr}
+@media(min-width:720px){.stats-in{grid-template-columns:repeat(4,1fr)}}
+.stat{padding:24px 12px;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat:nth-child(2n){border-right:none}
+@media(min-width:720px){
+  .stat{border-bottom:none}
+  .stat:nth-child(2n){border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+}
+.stat b{display:block;font-family:var(--serif);font-size:28px;line-height:1.05;font-weight:600;
+  color:var(--green-dark);letter-spacing:-.01em}
+.stat span{display:block;margin-top:8px;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+
+/* ---------- dark block ---------- */
+.dark{background:var(--green-deep);color:#dcebe4;border-bottom:none}
+.dark h2{color:#fff}
+.dark p{color:#b2ccc2}
+.dark .eyebrow{color:#7fc3a8}
+.dark ul.feat li{color:#c6dad2}
+.dark ul.feat li b{color:#fff}
+.dark ul.feat .dot{background:rgba(255,255,255,.12);color:#8fd3b6}
+.dark .btn-primary{background:#fff;color:var(--green-deep)}
+.dark .btn-primary:hover{opacity:.92}
 
 /* ---------- comparison ---------- */
 .compare{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:6px}
@@ -102,7 +155,7 @@ p:last-child{margin-bottom:0}
 .vcap{padding:11px 14px;font-size:13.5px;font-weight:600}
 .vcap span{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
 .shot{margin-top:14px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fbfcfd}
-.shot img{width:100%;height:auto;display:block}
+.shot img{width:100%;height:auto;max-height:440px;object-fit:cover;display:block}
 .shotcap{padding:11px 14px;font-size:13.5px;font-weight:600;border-top:1px solid var(--line)}
 .shotcap span{display:block;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px}
 .gallery{display:grid;gap:14px;margin-top:14px}
@@ -130,6 +183,43 @@ p:last-child{margin-bottom:0}
 .spec dt{color:var(--muted)}
 .spec dd{font-weight:600;text-align:right}
 
+/* ---------- stock status ---------- */
+.pstat{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;padding:4px 9px;border-radius:4px;margin-bottom:12px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.pstat.in{background:var(--green-light);color:var(--green-dark)}
+.pstat.soon{background:var(--amber-light);color:var(--amber)}
+
+/* ---------- product photo band ---------- */
+.pband{margin-top:18px;border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;background:#fff;display:grid}
+@media(min-width:760px){.pband{grid-template-columns:.78fr 1.22fr;align-items:center}}
+.pband img{width:100%;height:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.pband .pcap{padding:24px 20px;color:var(--muted);line-height:1.65;
+  border-top:1px solid var(--line)}
+@media(min-width:760px){.pband .pcap{border-top:none;border-left:1px solid var(--line);padding:34px 36px}}
+.pcap-eyebrow{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);
+  font-weight:700;margin-bottom:10px}
+.pcap-t{font-family:var(--serif);font-size:21px;line-height:1.28;color:var(--ink);
+  font-weight:600;margin-bottom:13px}
+.pband .pcap p{font-size:14.5px;margin-bottom:15px}
+.pband .pcap ul{list-style:none;display:grid;gap:9px;font-size:13.5px;margin:0}
+.pband .pcap li{position:relative;padding-left:17px}
+.pband .pcap li:before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;
+  border-radius:50%;background:var(--green)}
+
+/* ---------- video click-to-play ---------- */
+.vbox.facade{cursor:pointer;overflow:hidden;background:#dfe7e4}
+.vbox.facade>img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}
+.vbox.facade:hover>img{transform:scale(1.045)}
+.playbtn{position:absolute;left:0;right:0;bottom:0;padding:11px 13px;display:flex;
+  align-items:center;gap:9px;color:#fff;font-size:12.5px;font-weight:600;
+  background:linear-gradient(transparent,rgba(4,28,22,.72));
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+.playbtn svg{flex:0 0 auto;width:27px;height:27px;padding:5px;border-radius:50%;
+  background:rgba(255,255,255,.92);color:#0a3529}
+
 /* ---------- feature list ---------- */
 ul.feat{list-style:none;display:grid;gap:13px;margin-top:4px}
 ul.feat li{display:flex;gap:11px;font-size:15px;line-height:1.55}
@@ -151,7 +241,7 @@ ul.feat .dot{
 /* ---------- contact ---------- */
 .contact{background:var(--green);color:#fff;border-radius:var(--radius);padding:26px 22px;margin:8px 0 0}
 .contact h2{color:#fff;margin-bottom:8px}
-.contact p{color:#cfe6de;font-size:14.5px;margin-bottom:18px}
+.contact p{color:#cfe6de;font-size:14.5px;margin-bottom:18px;max-width:600px}
 .cbtn{
   display:flex;align-items:center;justify-content:center;gap:9px;
   background:#fff;color:var(--green);padding:15px;border-radius:11px;
@@ -163,8 +253,19 @@ ul.feat .dot{
 .cmeta b{color:#fff;font-weight:600;flex:0 0 76px}
 
 /* ---------- footer ---------- */
-footer{padding:26px 0 34px;font-size:12.5px;color:#8d97a1;text-align:center;line-height:1.7}
-footer a{color:#8d97a1;text-decoration:underline}
+footer{padding:46px 0 40px;font-size:12.5px;color:#7b8791;line-height:1.75;
+  border-top:1px solid var(--line);background:var(--paper)}
+.fgrid{display:grid;gap:26px}
+@media(min-width:760px){.fgrid{grid-template-columns:1.3fr 1fr 1fr}}
+.fbrand{font-family:var(--serif);font-size:23px;line-height:1.2;color:var(--ink);
+  font-weight:600;margin-bottom:7px}
+.fsub{font-size:12px;color:var(--muted);margin-bottom:10px}
+.fcol b{display:block;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink);margin-bottom:10px;font-weight:700}
+.fcol>div{margin-bottom:5px}
+.fcol a{color:#5f6b76;text-decoration:none;border-bottom:1px solid #d7dee2}
+.fnote{margin-top:30px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:11.5px;color:#8d97a1;max-width:600px}
 
 /* ---------- sticky mobile cta ---------- */
 .sticky{
@@ -188,33 +289,52 @@ footer a{color:#8d97a1;text-decoration:underline}
 
 <!-- ============ HERO ============ -->
 <div class="hero">
-  <div class="wrap">
-    <div class="brandline">
-      <div class="brandlock">
-        <img src="logo-mark.png" alt="VitaHome" class="logoimg">
-        <span class="brandname">VitaHome</span>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="brandline">
+        <div class="brandlock">
+          <img src="logo-mark.png" alt="VitaHome" class="logoimg">
+          <span class="brandname">VitaHome</span>
+        </div>
+        <div class="brandsub" id="brandSub">Ginseng herbal tea · Ghana</div>
       </div>
-      <div class="brandsub" id="brandSub">Ginseng herbal tea · Ghana</div>
+
+      <h1>Ginseng herbal tea,<br><span class="hl">already in Ghana.</span></h1>
+
+      <p class="lede">
+        Five, Ten and Thirteen Treasure ginseng tea. Our warehouse is in Accra and we
+        deliver to every region of Ghana. You don't import, you don't wait, you don't
+        fight customs.
+      </p>
+
+      <div class="badges">
+        <span class="badge">✓ Stocked in Accra</span>
+        <span class="badge">✓ Delivered nationwide</span>
+        <span class="badge">✓ 20-year factory in China</span>
+        <span class="badge">✓ Your own brand available</span>
+        <span class="badge">✓ Pay in cedis</span>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" id="waHero" href="#">Chat on WhatsApp</a>
+        <a class="btn btn-ghost" href="#products">See the product</a>
+      </div>
     </div>
 
-    <h1>Ginseng herbal tea,<br><span class="hl">already in Ghana.</span></h1>
-
-    <p class="lede">
-      Five, Ten and Thirteen Treasure ginseng tea — stocked in Accra and delivered to
-      every region of Ghana. You don't import, you don't wait, you don't fight customs.
-    </p>
-
-    <div class="badges">
-      <span class="badge">✓ Stock in Accra</span>
-      <span class="badge">✓ Nationwide delivery</span>
-      <span class="badge">✓ 20 years of tea making</span>
-      <span class="badge">✓ Your own brand available</span>
-      <span class="badge">✓ Pay in cedis</span>
+    <div class="hero-media">
+      <img src="product-five-treasure.jpg" alt="Ginseng Five Treasures Tea pack" loading="eager">
+      <div class="hero-cap" id="heroCap">Ginseng Five Treasures Tea · retail-ready pack</div>
     </div>
+  </div>
+</div>
 
-    <div class="cta-row">
-      <a class="btn btn-primary" id="waHero" href="#">Chat on WhatsApp</a>
-      <a class="btn btn-ghost" href="#products">See the product</a>
+<div class="stats">
+  <div class="wrap">
+    <div class="stats-in">
+      <div class="stat"><b>20</b><span>Years making tea</span></div>
+      <div class="stat"><b>3</b><span>Blends in the range</span></div>
+      <div class="stat"><b>16</b><span>Regions delivered</span></div>
+      <div class="stat"><b>Accra</b><span>Warehouse location</span></div>
     </div>
   </div>
 </div>
@@ -347,14 +467,16 @@ footer a{color:#8d97a1;text-decoration:underline}
 <section id="products">
   <div class="wrap">
     <div class="eyebrow">The product</div>
-    <h2>Three blends, one shelf</h2>
-    <p class="muted small" style="margin-bottom:16px">
-      All three come as tea bags — 20, 30 or 50 bags per pack, and we can make your own pack size.
+    <h2>Three blends, one range</h2>
+    <p class="muted small" style="margin-bottom:18px">
+      Five Treasure is in our Accra warehouse now. Ten and Thirteen Treasure are on the
+      water and land mid-December. All three come as tea bags — 20, 30, 40 or 50 bags per
+      pack, 150 packs to a carton. We can also make your own pack size.
     </p>
 
     <div class="pgrid">
       <div class="pcard">
-        <span class="ptag">BEST SELLER</span>
+        <span class="pstat in">In stock in Accra</span>
         <h3>Ginseng Five Treasure Tea</h3>
         <p class="small muted" style="margin-bottom:0">
           Ginseng with goji berry, red dates, mulberry and maca. The everyday blend most
@@ -362,16 +484,32 @@ footer a{color:#8d97a1;text-decoration:underline}
         </p>
       </div>
       <div class="pcard">
+        <span class="pstat soon">Next shipment · mid-Dec</span>
         <h3>Ginseng Ten Treasure Tea</h3>
         <p class="small muted" style="margin-bottom:0">
           A richer ten-ingredient blend for customers who want more. Full ingredient list on request.
         </p>
       </div>
       <div class="pcard">
+        <span class="pstat soon">Next shipment · mid-Dec</span>
         <h3>Ginseng Thirteen Treasure Tea</h3>
         <p class="small muted" style="margin-bottom:0">
           The most complete of the three. Full ingredient list on request.
         </p>
+      </div>
+    </div>
+
+    <div class="pband">
+      <img src="product-sachet.jpg" alt="Pyramid tea sachet showing whole cut botanicals" loading="lazy">
+      <div class="pcap">
+        <div class="pcap-eyebrow">What you are selling</div>
+        <div class="pcap-t">Whole botanicals, visible through the sachet</div>
+        <p>Ginseng, goji berry, red dates and mulberry, cut and sealed into a pyramid sachet.
+          Your customers can see the ingredients through the mesh before they buy.</p>
+        <ul>
+          <li>Pyramid sachet — whole cut pieces inside</li>
+          <li>Individually sealed, retail-ready</li>
+        </ul>
       </div>
     </div>
 
@@ -399,7 +537,7 @@ footer a{color:#8d97a1;text-decoration:underline}
 </section>
 
 <!-- ============ PRIVATE LABEL ============ -->
-<section id="custom">
+<section id="custom" class="dark">
   <div class="wrap">
     <div class="eyebrow">Your own brand</div>
     <h2>Put your name on the box</h2>
@@ -409,7 +547,7 @@ footer a{color:#8d97a1;text-decoration:underline}
     </p>
     <ul class="feat" style="margin-top:14px">
       <li><span class="dot">1</span><span><b>Your logo and design</b> — we handle the artwork with the factory</span></li>
-      <li><span class="dot">2</span><span><b>Your pack size</b> — 20, 30, 50 bags or your own count</span></li>
+      <li><span class="dot">2</span><span><b>Your pack size</b> — 20, 30, 40, 50 bags or your own count</span></li>
       <li><span class="dot">3</span><span><b>Your blend</b> — adjustments to the recipe are possible at volume</span></li>
       <li><span class="dot">4</span><span><b>Staggered delivery</b> — we can hold your stock here and release it as you sell</span></li>
     </ul>
@@ -443,7 +581,7 @@ footer a{color:#8d97a1;text-decoration:underline}
         timeline. Tell us your region and roughly how much you move — we'll quote against that.
         Delivery is available to every region in Ghana.
       </p>
-      <a class="cbtn" id="waContact" href="#">💬 WhatsApp us now</a>
+      <a class="cbtn" id="waContact" href="#">WhatsApp us now</a>
       <div class="cmeta">
         <div><b>Phone</b><span id="phoneOut">—</span></div>
         <div><b>WhatsApp</b><span id="waOut">—</span></div>
@@ -457,16 +595,33 @@ footer a{color:#8d97a1;text-decoration:underline}
 
 <footer>
   <div class="wrap">
-    <div id="footName">VitaHome</div>
-    <div style="margin-top:4px">Ginseng herbal tea · Wholesale &amp; private label · Ghana</div>
-    <div style="margin-top:10px;font-size:11.5px;max-width:520px;margin-left:auto;margin-right:auto">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand" id="footName">VitaHome</div>
+        <div class="fsub">Ginseng herbal tea · Wholesale &amp; private label · Ghana</div>
+        <div class="fsub" id="footLegal"></div>
+      </div>
+      <div class="fcol">
+        <b>Contact</b>
+        <div id="footPhone">—</div>
+        <div id="footWa">—</div>
+        <div id="footMail"></div>
+      </div>
+      <div class="fcol">
+        <b>Where we are</b>
+        <div id="footLoc">—</div>
+        <div id="footHours">—</div>
+        <div>Delivery to every region of Ghana</div>
+      </div>
+    </div>
+    <div class="fnote">
       This product is a herbal tea, not a medicine. It is not intended to diagnose, treat or cure any disease.
     </div>
   </div>
 </footer>
 
 <div class="sticky">
-  <a id="waSticky" href="#">💬 WhatsApp — price list &amp; samples</a>
+  <a id="waSticky" href="#">WhatsApp — price list &amp; samples</a>
 </div>
 
 <script>
@@ -486,9 +641,13 @@ const CONFIG = {
   location    : "Accra, Greater Accra",
   hours       : "Mon–Sat, 8:00 – 18:00",
 
-  packSize    : "20 / 30 / 50 bags per pack",
-  cartonQty   : "Ask for carton quantity",
-  shelfLife   : "2 years",
+  legalName   : "",                      // 注册公司全称，例 "VitaHome Trading Ltd"，留空自动隐藏
+  regNo       : "",                      // 加纳 Registrar General 注册号，留空自动隐藏
+  email       : "",                      // 留空自动隐藏
+
+  packSize    : "20 / 30 / 40 / 50 bags per pack",
+  cartonQty   : "150 packs per carton",
+  shelfLife   : "18 months",
 
   videoFactory    : "https://youtu.be/36oLF5n9dlI",   // 工厂总览 37 秒
   videoProduction : "https://youtu.be/Kz3LyQIuuhM",   // 生产车间 8 秒
@@ -517,12 +676,32 @@ document.getElementById('locOut').textContent    = CONFIG.location;
 document.getElementById('hoursOut').textContent  = CONFIG.hours;
 document.title = CONFIG.companyName + " — Ginseng Herbal Tea in Ghana";
 
+/* 页脚 */
+document.getElementById('footPhone').textContent = CONFIG.phone;
+document.getElementById('footWa').textContent    = "+" + CONFIG.whatsapp;
+document.getElementById('footLoc').textContent   = CONFIG.location;
+document.getElementById('footHours').textContent = CONFIG.hours;
+
+/* 注册信息：留空则整块不显示，不留占位符 */
+(function(){
+  var bits = [];
+  if(CONFIG.legalName) bits.push(CONFIG.legalName);
+  if(CONFIG.regNo)     bits.push("Registered in Ghana · Reg. No. " + CONFIG.regNo);
+  if(bits.length) document.getElementById('footLegal').textContent = bits.join(" · ");
+  if(CONFIG.email){
+    var el = document.getElementById('footMail');
+    if(el) el.innerHTML = '<a href="mailto:' + CONFIG.email + '">' + CONFIG.email + '</a>';
+  }
+})();
+
 document.getElementById('waHero').href    = waLink(MSG_HERO);
 document.getElementById('waCustom').href  = waLink(MSG_CUSTOM);
 document.getElementById('waContact').href = waLink(MSG_CONTACT);
 document.getElementById('waSticky').href  = waLink(MSG_CONTACT);
 
-/* 视频注入：支持 YouTube 与 Google Drive */
+/* 视频：先显示封面图，点了才加载播放器（省流量，也避免黑块） */
+var PLAY_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+
 function embedVideo(elId, url, label, poster){
    const el = document.getElementById(elId);
    if(!el) return;
@@ -532,18 +711,29 @@ function embedVideo(elId, url, label, poster){
      if(card) card.remove();
      return;
    }
-   let html = "";
+
+   let src = "";
    const yt = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
    if(yt){
-     html = '<iframe src="https://www.youtube.com/embed/' + yt[1] + '" allowfullscreen loading="lazy" title="' + label + '"></iframe>';
+     src = 'https://www.youtube.com/embed/' + yt[1] + '?autoplay=1&rel=0';
    } else if(url.includes('drive.google.com')){
      const idm = url.match(/[-\w]{25,}/);
-     if(idm) html = '<iframe src="https://drive.google.com/file/d/' + idm[0] + '/preview" allow="autoplay" loading="lazy" title="' + label + '"></iframe>';
-   } else {
-     var p = poster ? ' poster="' + poster + '"' : '';
-     html = '<video src="' + url + '" controls playsinline preload="none"' + p + '></video>';
+     if(idm) src = 'https://drive.google.com/file/d/' + idm[0] + '/preview';
    }
-   if(html) el.innerHTML = html;
+
+   if(poster){
+     el.classList.add('facade');
+     el.innerHTML = '<img src="' + poster + '" alt="' + label + '" loading="lazy">' +
+       '<span class="playbtn">' + PLAY_ICON + '<span>' + label + '</span></span>';
+   }
+
+   el.addEventListener('click', function(){
+     if(src){
+       el.innerHTML = '<iframe src="' + src + '" allow="autoplay; fullscreen; encrypted-media" allowfullscreen title="' + label + '"></iframe>';
+     } else {
+       el.innerHTML = '<video src="' + url + '" controls autoplay playsinline></video>';
+     }
+   }, {once:true});
  }
  embedVideo('videoFactory', CONFIG.videoFactory,   'Factory tour',    'factory-loading.jpg');
  embedVideo('videoProd', CONFIG.videoProduction, 'Production line', 'workshop-1.jpg');
