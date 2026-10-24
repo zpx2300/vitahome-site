@@ -258,7 +258,7 @@ ul.feat .dot{
 .cmeta{display:grid;gap:7px;font-size:14px;color:#d8ece5;margin-top:16px;
   border-top:1px solid rgba(255,255,255,.18);padding-top:14px}
 .cmeta div{display:flex;gap:8px}
-.cmeta b{color:#fff;font-weight:600;flex:0 0 94px}
+.cmeta b{color:#fff;font-weight:600;flex:0 0 118px}
 
 /* ---------- footer ---------- */
 footer{padding:46px 0 40px;font-size:12.5px;color:#7b8791;line-height:1.75;
@@ -610,9 +610,9 @@ footer{padding:46px 0 40px;font-size:12.5px;color:#7b8791;line-height:1.75;
         <div><b>Phone</b><span id="phoneOut">—</span></div>
         <div><b>Manager</b><span id="mgrOut">—</span></div>
         <div><b>WhatsApp</b><span id="waOut">—</span></div>
+        <div><b>WhatsApp (GH)</b><span id="waGhOut">—</span></div>
         <div><b>Warehouse</b><span id="locOut">—</span></div>
         <div><b>Reg. No.</b><span id="regOut">—</span></div>
-        <div><b>Factory line</b><span id="factoryLine">—</span></div>
         <div><b>Hours</b><span id="hoursOut">Mon–Sat, 8:00 – 18:00</span></div>
       </div>
     </div>
@@ -629,6 +629,7 @@ footer{padding:46px 0 40px;font-size:12.5px;color:#7b8791;line-height:1.75;
       </div>
       <div class="fcol">
         <b>Contact</b>
+        <div id="footDirect">—</div>
         <div id="footPhone">—</div>
         <div id="footMgr">—</div>
         <div id="footWa">—</div>
@@ -662,10 +663,10 @@ const CONFIG = {
   factoryName : "Deyuntang Health",      // 厂家英文名（德韵堂健康）
   factoryYears: "20",
 
-  whatsapp    : "233260886484",          // WhatsApp 号：只填数字，去掉开头 0，前面加 233
-  phone       : "+233 59 447 7767",
+  whatsapp    : "8617345310127",         // 全站 4 个按钮都跳这个号（本人中国号，已开通 WhatsApp）
+  whatsappGh  : "233260886484",          // 加纳同事的 WhatsApp，只展示，不做按钮跳转
+  phone       : "",                      // 已撤下（+233 59 447 7767）；留空则联系卡与页脚的电话行自动隐藏
   managerPhone: "0249006354",            // 加纳经理直线，留空则该行自动隐藏
-  factoryLine : "+86 173 4531 0127",     // 厂家直线（中国）
   location    : "Accra, Greater Accra",
   hours       : "Mon–Sat, 8:00 – 18:00",
 
@@ -685,11 +686,12 @@ const CONFIG = {
 };
 
 /* ---------- 以下不用改 ---------- */
-/* 加纳号码统一显示成 +233 XX XXX XXXX */
-function fmtGh(d){
+/* 号码显示：中国号 → +86 173 4531 0127；加纳号 → +233 XX XXX XXXX */
+function fmtNum(d){
   var m = String(d).replace(/\D/g, "");
+  if(m.length === 13 && m.slice(0,2) === "86")  return "+86 " + m.slice(2,5) + " " + m.slice(5,9) + " " + m.slice(9);
   if(m.length === 12 && m.slice(0,3) === "233") return "+233 " + m.slice(3,5) + " " + m.slice(5,8) + " " + m.slice(8);
-  if(m.length === 10 && m[0] === "0")          return "+233 " + m.slice(1,3) + " " + m.slice(3,6) + " " + m.slice(6);
+  if(m.length === 10 && m[0] === "0")           return "+233 " + m.slice(1,3) + " " + m.slice(3,6) + " " + m.slice(6);
   return "+" + m;
 }
 
@@ -707,16 +709,32 @@ document.getElementById('footName').textContent  = CONFIG.companyName;
 document.getElementById('packSize').textContent  = CONFIG.packSize;
 document.getElementById('cartonQty').textContent = CONFIG.cartonQty;
 document.getElementById('shelfLife').textContent = CONFIG.shelfLife;
-document.getElementById('phoneOut').textContent  = CONFIG.phone;
-document.getElementById('factoryLine').textContent = CONFIG.factoryLine;
-document.getElementById('waOut').textContent     = fmtGh(CONFIG.whatsapp);
+/* 电话：没填就把联系卡和页脚的行一起移除 */
+(function(){
+  var c = document.getElementById('phoneOut'), f = document.getElementById('footPhone');
+  if(!CONFIG.phone){
+    if(c) c.parentNode.remove();
+    if(f) f.remove();
+    return;
+  }
+  if(c) c.textContent = CONFIG.phone;
+  if(f) f.textContent = "Phone  " + CONFIG.phone;
+})();
+document.getElementById('waOut').textContent     = fmtNum(CONFIG.whatsapp);
+/* 加纳同事 WhatsApp：填了才显示 */
+(function(){
+  var el = document.getElementById('waGhOut');
+  if(!el) return;
+  if(CONFIG.whatsappGh) el.textContent = fmtNum(CONFIG.whatsappGh);
+  else el.parentNode.remove();
+})();
 document.getElementById('locOut').textContent    = CONFIG.location;
 document.getElementById('hoursOut').textContent  = CONFIG.hours;
 document.title = CONFIG.companyName + " — Ginseng Herbal Tea in Ghana";
 
-/* 页脚 */
-document.getElementById('footPhone').textContent = "Phone  " + CONFIG.phone;
-document.getElementById('footWa').textContent    = "WhatsApp  " + fmtGh(CONFIG.whatsapp);
+/* 页脚（电话行由上面的 IIFE 统一处理，这里不再重复赋值，否则留空时会报错） */
+document.getElementById('footDirect').textContent = "WhatsApp  " + fmtNum(CONFIG.whatsapp);
+document.getElementById('footWa').textContent     = CONFIG.whatsappGh ? ("WhatsApp GH  " + fmtNum(CONFIG.whatsappGh)) : "";
 
 /* 经理直线：没填就把整行移除，不留破折号 */
 (function(){
@@ -726,7 +744,7 @@ document.getElementById('footWa').textContent    = "WhatsApp  " + fmtGh(CONFIG.w
     if(f) f.remove();
     return;
   }
-  var t = fmtGh(CONFIG.managerPhone);
+  var t = fmtNum(CONFIG.managerPhone);
   if(c) c.textContent = t;
   if(f) f.textContent = "Manager  " + t;
 })();
